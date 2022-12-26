@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Belleza&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Public+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Write your custom classes here - you can using apply directive and tailwind classes  */
+html,
+body {
+    font-family: 'Public Sans', 'Helvetica', 'Arial', sans-serif;
+}
+
+html.overlay--active::before {
+    content: '';
+    @apply fixed block top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50;
+    z-index: 38;
+}
+.scroll--disabled {
+    overflow-y:hidden;
+}
+
+.font-heading {
+    font-family: 'Montserrat', 'Helvetica', 'Arial', sans-serif;
+}
+.font-subheading {
+    font-family: 'Belleza', 'Helvetica', 'Arial', sans-serif;
+}
+.text-base-sm {
+    font-size: 0.9375rem;
+}
+
+.btn {
+    @apply py-3 px-8 uppercase font-medium border border-2 inline-block bg-light text-dark rounded-sm text-sm lg:text-base lg:py-3 transition-all duration-300 whitespace-nowrap;
+}
+.btn-primary {
+    @apply bg-primary text-dark border-primary;
+}
+.btn-white-outline {
+    @apply bg-transparent border-white text-white hover:bg-white hover:text-dark;
+}
+.btn-dark-outline {
+    @apply bg-transparent border-dark text-dark hover:bg-dark hover:text-primary;
+}
+.btn-primary-outline {
+    @apply bg-transparent border-primary text-primary hover:bg-primary hover:text-dark;
+}
+.bg-black-transparent {
+    @apply bg-gray-900 bg-opacity-50;
+}
+.btn-dark {
+    @apply bg-dark border-dark text-white hover:bg-darkAlter hover:border-darkAlter hover:text-primary;
+}
+
+/* Section Padding */
+.section--py {
+    @apply py-14 md:py-16 lg:py-20;
+}
+.section--pt {
+    @apply pt-14 md:pt-16 lg:pt-20;
+}
+.section--pb {
+    @apply pb-14 md:pb-16 lg:pb-20;
+}
+
+
+/* Header */
+.site-header {
+    z-index: 39;
+}
+.site-header .nav--mobile-nav ul li.active a {
+    @apply text-primary;
+}
+.site-header .nav--desktop-nav ul li {
+    @apply relative;
+}
+.site-header .nav--desktop-nav ul li::before {
+    content: '';
+    @apply absolute bottom-0 left-0 bg-primary transition-all;
+    width: 0;
+    height: 2px;
+}
+.site-header .nav--desktop-nav ul li:hover::before,
+.site-header .nav--desktop-nav ul li.active::before  {
+    width: 100%;
+}
+.site-header .nav--desktop-nav ul li a {
+    @apply inline-block;
+}
+.site-header .nav--desktop-nav ul li.active a {
+    @apply text-primary;
+}
+.btn--enquiry-global {
+    top: 50%;
+    left: calc(100% - 40px);
+    transform: translate(-50%, -50%) rotate(-90deg);
+    z-index: 500;
+    @apply bg-dark border-darkAlter shadow-md text-white hover:bg-darkAlter hover:text-primary  hidden md:inline-block;
+}
+
+/* Footer */
+.site-footer {
+    background-image: url(../assets/images/footer-bg.webp);
+}
+.site-footer::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-full bg-dark;
+    opacity: 0.95;
+}
+.site-footer .newsletter-form {
+    max-width: 336px;
+}
+.site-footer .newsletter-form button {
+    @apply lg:py-2;
+}
+.site-footer .site-footer__contact--link:first-child:hover svg path {
+    @apply fill-primary;
+}
+
+/* About Section */
+@media (min-width: 1024px) {
+    .about-section .container {
+        background-image: url(../assets/images/pablo-merchan-montes-O-sNTavXbmE-unsplash\ 1.webp);
+        @apply bg-no-repeat;
+        background-position: bottom right;
+        background-size: 50%;
+    }
+}
+@media (min-width: 1200px) {
+    .about-section .container {
+        background-size: 55%;
+    }
+}
+@media (min-width: 1400px) {
+    .about-section .container {
+        background-size: 55%;
+    }
+}
+/* Extension Category Section */
+.extension-cat-section .item::before {
+    content: '';
+    @apply absolute block w-full h-full top-0 left-0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 5;
+    pointer-events: none;
+}
+.extension-cat-section .item .item__header a img {
+    transition: transform 0.3s ease-in-out;
+}
+.extension-cat-section .item:hover .item__header a img {
+    transform: scale(1.15);
+}
+.extension-cat-section .item .item__body {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 6;
+    width: 90%;
+}
+/* Why Us Section */
+.why-us-section::before {
+    content: '';
+    @apply absolute bottom-0 left-0 bg-dark lg:bottom-auto lg:top-0;
+    @apply w-full h-48 lg:h-full lg:w-1/3;
+
+}
+
+/* Shop CTA Section */
+.shop-cta-section {
+    position: relative;
+    background-image: url(../assets/images/shop-cta.webp);
+}
+.shop-cta-section::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-full;
+    background-color: rgba(0,0,0,0.65);
+}
+
+/* Product Card */
+.product-card .product-card__header {
+    aspect-ratio: 4/5;
+}
+.product-card .product-card__header a {
+    overflow: hidden;
+}
+.product-card .product-card__header a img {
+    transform: scale(1.0125);
+    transition: transform 0.3s ease-in-out;
+}
+.product-card:hover .product-card__header a img {
+    transform: scale(1.15);
+}
+.product-card .product-card__body .product-card__btn--enquiry {
+    @apply text-xs md:text-sm py-2 px-3 lg:px-5;
+}
+
+.swiper-button-next, .swiper-button-prev {
+   color: #000!important;
+}
+@media (max-width: 1023px) {
+    .swiper--products-slider .swiper-button-prev,
+    .swiper--products-slider .swiper-button-next {
+        display: none;
+    }
+}
+
+/* Before After Section */
+.before-after-section .ba-item img {
+    aspect-ratio: 4/5;
+    object-fit: cover;
+}
+.before-after-section .ba-item .ba-item__body {
+    display: none;
+}
+.before-after-section .ba-item__btn--more-info:hover + .ba-item__body {
+    display: block;
+}
+
+/* Hero Section */
+.hero-section .swiper .swiper-slide img {
+    @apply aspect-[3/4] md:aspect-[16/6];
+}
+.hero-section .slide__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 30;
+    @apply w-3/4 md:w-2/3 xl:w-auto;
+}
+.swiper-pagination-bullet {
+    width: 48px!important;
+    background-color: #fff!important;
+    border-radius: 8px!important;
+    height: 5px!important;
+
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: #D6BB62!important;
+}
+
+/* Whatsapp Button */
+.bh-widget-page-wrapper {
+    bottom: 20px!important;
+}
+@media (min-width: 1024px) {
+    .bh-widget-page-wrapper {
+        bottom: 80px!important;
+    } 
+}
