@@ -1,17 +1,17 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
   // ENTRY POINT
-  entry: './src/js/index.js',
+  entry: "./src/js/index.js",
 
   // OUTPUT
   output: {
-    path: path.resolve(process.cwd(), './dist'),
-    filename: 'js/[name].bundle.js',
+    path: path.resolve(process.cwd(), "./dist"),
+    filename: "js/[name].bundle.js",
     clean: true,
   },
 
@@ -22,7 +22,7 @@ module.exports = {
         test: /\.(png|jpg|gif|svg|eot|ttf|woff)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
           },
         ],
       },
@@ -31,21 +31,22 @@ module.exports = {
         test: /\.js$/i,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env'],
+            presets: ["@babel/preset-env"],
           },
         },
       },
       {
         // Extract any CSS or SCSS content and minimize
         test: /\.[s]?css$/,
-        use: [MiniCssExtractPlugin.loader, { loader: 'css-loader', options: { importLoaders: 2 } }, { loader: 'postcss-loader' }, { loader: 'sass-loader' }],
+        use: [MiniCssExtractPlugin.loader, { loader: "css-loader", options: { importLoaders: 2, url: false, },
+       }, { loader: "postcss-loader" }, { loader: "sass-loader" }],
       },
       // FILE LOADER FOR FONTS
       {
         test: /\.(svg|eot|woff|woff2|ttf)$/,
-        use: ['file-loader'],
+        use: ["file-loader"],
       },
     ],
   },
@@ -60,19 +61,19 @@ module.exports = {
 
   plugins: [
     // ADDING HTML PAGES FOR INJECTING BUNDLE JS FILE AND GENERATING INTO DIST FILE
-    new HtmlWebpackPlugin({ inject: 'body', template: path.resolve(process.cwd(), 'src/index.html') }),
+    new HtmlWebpackPlugin({ inject: "body", template: path.resolve(process.cwd(), "src/index.html") }),
 
     // EXTRACTS CSS INTO SEPARATE CSS FILE
     new MiniCssExtractPlugin({
-      filename: 'css/[name].min.css',
+      filename: "css/[name].min.css",
     }),
 
     // COPY IMAGES TO PUBLIC FOLDER
     new CopyPlugin({
       patterns: [
         {
-          from: 'src/assets/images',
-          to: 'assets/images',
+          from: "src/assets/images",
+          to: "assets/images",
         },
       ],
     }),
@@ -80,16 +81,16 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         {
-          from: 'src/assets/font',
-          to: 'assets/font',
+          from: "src/assets/font",
+          to: "assets/font",
         },
       ],
     }),
     new CopyPlugin({
       patterns: [
         {
-          from: 'src/assets/js/backend-script.js',
-          to: 'js/',
+          from: "src/js/backend-script.js",
+          to: "js/",
         },
       ],
     }),
@@ -98,9 +99,9 @@ module.exports = {
   // DEV SERVER
   devServer: {
     static: {
-      directory: path.join(__dirname, 'public'),
+      directory: path.join(__dirname, "public"),
     },
-    watchFiles: [path.resolve(process.cwd(), 'src/index.html')],
+    watchFiles: [path.resolve(process.cwd(), "src/index.html")],
     compress: true,
     port: 9000,
     hot: true,
@@ -108,6 +109,6 @@ module.exports = {
 
   // EXTERNAL
   externals: {
-    jquery: 'jQuery',
+    jquery: "jQuery",
   },
 };

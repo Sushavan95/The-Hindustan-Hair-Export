@@ -153,6 +153,7 @@ $(document).ready(function () {
   const productCardEnquiryBtns = $('.product-card__btn--enquiry');
   const enquiryForm = $('.enquiry-form');
 
+
   productCardEnquiryBtns.each(function() {
     $(this).on('click', function(e) {
       e.preventDefault();
@@ -161,14 +162,15 @@ $(document).ready(function () {
   
       var productSelectFieldOptions = enquiryForm.find('.form__input--product-select option');
   
-      productSelectFieldOptions.attr('selected', false);
       productSelectFieldOptions.each(function() {
         if($(this).attr('data-id') == getID) {
           $(this).attr('selected', true);
         }
+        else {
+          $(this).attr('selected', false);
+        }
       })
   
-      
     })
     
   })
