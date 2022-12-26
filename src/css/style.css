@@ -176,6 +176,9 @@ html.overlay--active::before {
 }
 
 /* Product Card */
+.product-card {
+    position: relative;
+}
 .product-card .product-card__header {
     aspect-ratio: 4/5;
 }
