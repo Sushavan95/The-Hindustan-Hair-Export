@@ -250,3 +250,12 @@ html.overlay--active::before {
         bottom: 80px!important;
     } 
 }
+
+
+.form__input--no-arrow-button::-webkit-inner-spin-button, 
+.form__input--no-arrow-button::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}

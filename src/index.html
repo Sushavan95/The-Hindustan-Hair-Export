@@ -63,7 +63,7 @@
         <div class="search-form-wrapper py-3" style="display: none">
           <form action="#" class="form search-form">
             <div class="form__field">
-              <input type="text" name="sf_inp" class="rounded-sm border border-gray-500 text-white placeholder:text-gray-400 font-medium bg-transparent focus:border-primary focus:outline-none w-full px-3 py-3" placeholder="Search for products here..." required />
+              <input type="text" name="sf_inp" class="rounded-sm border border-gray-500 text-white placeholder:text-gray-400 font-medium bg-transparent focus:border-primary focus:ring-primary w-full px-3 py-3" placeholder="Search for products here..." required />
             </div>
           </form>
         </div>
@@ -98,7 +98,7 @@
           </ul>
         </nav>
         <div>
-          <a href="#" class="inline-block btn btn-primary-outline" type="button" data-modal-toggle="enquiryModal">Enquiry Now</a>
+          <a href="#" class="inline-block btn btn-primary-outline" role="button" data-modal-toggle="enquiryModal">Enquiry Now</a>
         </div>
       </div>
 
@@ -329,7 +329,7 @@
 
           <div class="flex justify-center mt-8">
             <div class="w-2/3">
-              <p class="text-para font-medium lg:text-lg text-center leading-loose">Worry about yours hair problem? <button class="btn btn-dark-outline inline-block ml-3" role="button" data-modal-toggle="enquiryModal">Enquiry Now</a></p>
+              <p class="text-para font-medium lg:text-lg text-center leading-loose">Worry about yours hair problem? <button class="btn btn-dark-outline inline-block ml-3" role="button" data-modal-toggle="enquiryModal">Enquiry Now</button></p>
             </div>
           </div>
         </div>
@@ -641,7 +641,7 @@
             <div class="col-span-12 sm:col-span-6 lg:col-span-3">
               <h6 class="text-gray-100 font-heading font-medium uppercase mb-2 xl:mb-3">Newsletter</h6>
               <form action="#" class="form newsletter-form mb-2">
-                <input type="email" name="nf_email" class="rounded-sm bg-white border-2 border-white text-dark placeholder:tet-para py-2 px-3 w-full mb-2 focus:border-primary" placeholder="Your Email" required />
+                <input type="email" name="nf_email" class="rounded-sm bg-white border-2 border-white text-dark placeholder:tet-para py-2 px-3 w-full mb-2 focus:border-primary focus:ring-primary" placeholder="Your Email" required />
                 <button type="submit" class="w-full text-center btn btn-white-outline py-2">Subscribe</button>
               </form>
               <p class="text-gray-200 text-sm">For more info, please read our <a href="#" class="text-primary italic underline">Privacy Policy</a> and <a href="#" class="text-primary italic underline">Terms & Conditions</a></p>
@@ -710,16 +710,16 @@
               <form action="#" class="form enquiry-form mb-5">
                 <div class="grid grid-cols-12 gap-4">
                   <div class="form__field col-span-12 lg:col-span-6">
-                    <input type="text" name="ef_fullname" placeholder="Full Name*" class="form__input px-3 py-2 lg:px-4 lg:py-3 text-dark placeholder:text-gray-500 font-medium rounded-sm border border-borderColor w-full focus:ring-0" required>
+                    <input type="text" name="ef_fullname" placeholder="Full Name*" class="form__input px-3 py-2 lg:px-4 lg:py-3 text-dark placeholder:text-gray-500 font-medium rounded-sm border border-borderColor w-full focus:ring-primary focus:border-primary" required>
                   </div>
                   <div class="form__field col-span-12 lg:col-span-6">
-                    <input type="email" name="ef_fullname" placeholder="Email*" class="form__input px-3 py-2 lg:px-4 lg:py-3 text-dark placeholder:text-gray-500 font-medium rounded-sm border border-borderColor w-full focus:ring-0" required>
+                    <input type="email" name="ef_fullname" placeholder="Email*" class="form__input px-3 py-2 lg:px-4 lg:py-3 text-dark placeholder:text-gray-500 font-medium rounded-sm border border-borderColor w-full focus:ring-primary focus:border-primary" required>
                   </div>
                   <div class="form__field col-span-12 lg:col-span-6">
-                    <input type="number" name="ef_phone" placeholder="Phone*" class="form__input px-3 py-2 lg:px-4 lg:py-3 text-dark placeholder:text-gray-500 font-medium rounded-sm border border-borderColor w-full focus:ring-0" required>
+                    <input type="number" name="ef_phone" placeholder="Phone*" class="form__input form__input--no-arrow-button px-3 py-2 lg:px-4 lg:py-3 text-dark placeholder:text-gray-500 font-medium rounded-sm border border-borderColor w-full focus:ring-primary focus:border-primary" required>
                   </div>
                   <div class="form__field col-span-12 lg:col-span-6">
-                    <select name="ef_product" class="form__input form__input--product-select px-3 py-2 lg:px-4 lg:py-3 text-dark placeholder:text-gray-500 font-medium rounded-sm border border-borderColor w-full focus:ring-0" required>
+                    <select name="ef_product" class="form__input form__input--product-select px-3 py-2 lg:px-4 lg:py-3 text-dark placeholder:text-gray-500 font-medium rounded-sm border border-borderColor w-full focus:ring-primary focus:border-primary" required>
                       <option value="">Select Product</option>
                       <option value="Product Title 1" data-id="p1">Product Title 1</option>
                       <option value="Product Title 2" data-id="p2">Product Title 2</option>
@@ -732,7 +732,10 @@
                     </select>
                   </div>
                   <div class="form__field col-span-12">
-                    <textarea name="ef_message" class="form__input px-3 py-2 lg:px-4 lg:py-3 text-dark placeholder:text-gray-500 font-medium rounded-sm border border-borderColor w-full focus:ring-0 h-28" placeholder="Message(Optional)"></textarea>
+                    <input type="number" name="ef_product_count" placeholder="No. of Product*" class="form__input px-3 py-2 lg:px-4 lg:py-3 text-dark placeholder:text-gray-500 font-medium rounded-sm border border-borderColor w-full focus:ring-primary focus:border-primary" min="0" max="20" required>
+                  </div>
+                  <div class="form__field col-span-12">
+                    <textarea name="ef_message" class="form__input px-3 py-2 lg:px-4 lg:py-3 text-dark placeholder:text-gray-500 font-medium rounded-sm border border-borderColor w-full focus:ring-primary focus:border-primary h-28" placeholder="Message(Optional)"></textarea>
                   </div>
                   <div class="form__field col-span-12">
                     <button type="submit" class="btn btn-dark block w-full">Submit</button>
